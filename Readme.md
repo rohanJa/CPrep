@@ -1,3 +1,4 @@
-| Section    |
-| ---------- |
-| [DP](./DP) |
+| Section                     |
+| --------------------------- |
+| [DP](./DP)                  |
+| [Sorting Algorithm](./Sort) |
