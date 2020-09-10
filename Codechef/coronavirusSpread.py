@@ -12,7 +12,7 @@ while(t>0):
         resultMax=1
         minSpeed=speed[val]
         fastSpeed=speed[val]
-
+        slowSpeed=speed[val]
         for j in range(0,len(speed)):
             if(j!=val):
                 if(val>j and speed[j]>speed[val]):
@@ -23,8 +23,23 @@ while(t>0):
                         fastSpeed=max(fastSpeed,speed[j])
 
                 elif(val<j and speed[j]<fastSpeed):
+                    if slowSpeed==speed[val]:
+                        slowSpeed=speed[j]
+                    else:     
+                        slowSpeed=min(slowSpeed,speed[j])
+        
                     resultMax+=1
-            
+
+        #people behind the current selected player which are slower than the speed of selected player 
+        # can get infected if the current player infects a player which is slower than him.Then the 
+        # slow player will infect the player behind the selected player which are faster than the player which 
+        # are ahead then the selected player (i.e.) in position but solwer in speed.  
+
+        for j in range(0,val):
+            if slowSpeed!=speed[j] and speed[j]<=speed[val]:
+                if speed[j]>slowSpeed:
+                    resultMax+=1
+
         ansMax=max(ansMax,resultMax)
         resultMin=min(resultMax,resultMin)
             
