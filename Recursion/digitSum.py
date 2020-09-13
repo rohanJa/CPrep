@@ -1,0 +1,22 @@
+n,k=map(int,input().split())
+s=n
+count=0
+while(s//10>0):
+    count+=1
+    
+    n=s
+    s=0
+    while(n>0):
+        a=n%10
+        n//=10
+        s+=a    
+s*=k
+while(s//10>0):
+    count+=1
+    n=s
+    s=0
+    while(n>0):
+        a=n%10
+        n//=10
+        s+=a
+print(s)
